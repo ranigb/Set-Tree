@@ -29,6 +29,36 @@ class graph_data:
                         feature_list.append(agg(col))
         return(np.array(feature_list))
 
+    def get_index(self, index : int, 
+                        sizes:List[int]) -> List[int]:
+        indices = []
+        for n in range(0, len(sizes)):
+            s = sizes[len(sizes) - 1 - n]
+            i = index % s
+            index = int((index - i) / s)
+            indices.insert(0, i)
+        return(indices)
+
+
+
+    def get_single_feature(self, index_in_feature_vector : int, 
+                                depths: List[int], 
+                                attensions: List[np.array], 
+                                aggregators: List[Callable[[np.array], np.generic]]) -> np.generic:
+
+        depth_index, attention_index, aggregator_index, col_index = \
+            self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.attributes.shape[1]])
+        depth = depths[depth_index]
+        attention = attensions[attention_index]
+        agg = aggregators[aggregator_index]
+        p = self.propagate(depth)
+        pa = p[attention, :]
+        col = pa[:, col_index]
+        return(agg(col))
+
+
+                
+
 
 
 #%%
@@ -38,7 +68,12 @@ features = np.array([[1, 1], [1, 2], [1, 3]])
 sm = lambda x : np.sum(x)
 mx = lambda x : np.max(x)
 gd = graph_data(graph, features)
-print(gd.get_feature_vector([0,1,2], [[0,1,2], [0]], [sm, mx] ))
+fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], [sm, mx] )
+print (fv)
+lst = []
+for i in range(0, len(fv)):
+    lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], [sm, mx]))
+print(lst)
 
 
 
