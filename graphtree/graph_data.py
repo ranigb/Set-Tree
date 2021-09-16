@@ -2,9 +2,13 @@
 import numpy as np
 from numpy.linalg import matrix_power
 from typing import Callable, List
+from split_criteria import criteria, split_criteria
+
+
+
 #%%
 class graph_data:
-    def __init__(self, graph: np.array, features: np.array):
+    def __init__(self, graph: np.array, features: np.array, label: np.generic = np.NAN):
         n1, n2 = np.shape(graph)
         if (n1 != n2):
             raise ValueError("graph must be a square matrix")
@@ -14,11 +18,14 @@ class graph_data:
 
         self.graph = graph
         self.attributes = features
+        self.label = label
 
     def propagate(self, depth : int) -> np.array:
         return (np.matmul(np.linalg.matrix_power(self.graph, depth), features))
 
-    def get_feature_vector(self, depths: List[int], attensions: List[np.array], aggregators: List[Callable[[np.array], np.generic]]) -> np.array:
+    def get_feature_vector(self, depths: List[int], 
+                            attensions: List[np.array], 
+                            aggregators: List[split_criteria]) -> np.array:
         feature_list = []
         for depth in depths:
             p = self.propagate(depth)
@@ -26,7 +33,7 @@ class graph_data:
                 pa = p[attention, :]
                 for agg in aggregators:
                     for col in pa.T:
-                        feature_list.append(agg(col))
+                        feature_list.append(agg.get_score(col))
         return(np.array(feature_list))
 
     def get_index(self, index : int, 
@@ -44,7 +51,7 @@ class graph_data:
     def get_single_feature(self, index_in_feature_vector : int, 
                                 depths: List[int], 
                                 attensions: List[np.array], 
-                                aggregators: List[Callable[[np.array], np.generic]]) -> np.generic:
+                                aggregators: List[split_criteria]) -> np.generic:
 
         depth_index, attention_index, aggregator_index, col_index = \
             self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.attributes.shape[1]])
@@ -54,7 +61,32 @@ class graph_data:
         p = self.propagate(depth)
         pa = p[attention, :]
         col = pa[:, col_index]
-        return(agg(col))
+        return(agg.get_score(col))
+
+
+    def get_single_attention(self, index_in_feature_vector : int,
+                                threshold: np.generic, 
+                                depths: List[int], 
+                                attensions: List[np.array], 
+                                aggregators: List[split_criteria]) -> np.generic:
+
+        depth_index, attention_index, aggregator_index, col_index = \
+            self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.attributes.shape[1]])
+        depth = depths[depth_index]
+        attention = attensions[attention_index]
+        agg = aggregators[aggregator_index]
+        p = self.propagate(depth)
+        pa = p[attention, :]
+        col = pa[:, col_index]
+        local_attention = agg.get_attention(col, threshold)
+        return(attention[local_attention])
+
+
+
+    def get_label(self):
+        return (self.label)
+
+        
 
 
                 
@@ -65,15 +97,13 @@ class graph_data:
 
 graph = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
 features = np.array([[1, 1], [1, 2], [1, 3]])
-sm = lambda x : np.sum(x)
-mx = lambda x : np.max(x)
 gd = graph_data(graph, features)
-fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], [sm, mx] )
+fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], criteria )
 print (fv)
 lst = []
 for i in range(0, len(fv)):
-    lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], [sm, mx]))
-print(lst)
+    lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], criteria))
+print(np.array(lst))
 
 
 
