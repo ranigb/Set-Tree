@@ -17,11 +17,11 @@ class graph_data:
             raise ValueError("the number of rows of features does not match the number of nodes in the graph")
 
         self.graph = graph
-        self.attributes = features
+        self.features = features
         self.label = label
 
     def propagate(self, depth : int) -> np.array:
-        return (np.matmul(np.linalg.matrix_power(self.graph, depth), features))
+        return (np.matmul(np.linalg.matrix_power(self.graph, depth), self.features))
 
     def get_feature_vector(self, depths: List[int], 
                             attensions: List[np.array], 
@@ -46,7 +46,11 @@ class graph_data:
             indices.insert(0, i)
         return(indices)
 
+    def get_number_of_nodes(self):
+        return(np.shape(self.graph)[0])
 
+    def get_number_of_features(self):
+        return(np.shape(self.features)[1])
 
     def get_single_feature(self, index_in_feature_vector : int, 
                                 depths: List[int], 
@@ -54,7 +58,7 @@ class graph_data:
                                 aggregators: List[split_criteria]) -> np.generic:
 
         depth_index, attention_index, aggregator_index, col_index = \
-            self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.attributes.shape[1]])
+            self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.features.shape[1]])
         depth = depths[depth_index]
         attention = attensions[attention_index]
         agg = aggregators[aggregator_index]
@@ -71,7 +75,7 @@ class graph_data:
                         aggregators: List[split_criteria]) -> List[List[int]]:
 
         depth_index, attention_index, aggregator_index, col_index = \
-            self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.attributes.shape[1]])
+            self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.features.shape[1]])
         depth = depths[depth_index]
         attention = attensions[attention_index]
         agg = aggregators[aggregator_index]
@@ -93,17 +97,16 @@ class graph_data:
 
 #%%
 
-graph = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
-features = np.array([[0, 1], [1, 2], [1, 3]])
-gd = graph_data(graph, features)
-fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], criteria )
-print (fv)
-lst = []
-for i in range(0, len(fv)):
-    lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], criteria))
-print(np.array(lst))
-gd.get_attentions(0, 3, [0,1,2], [[0,1,2], [0]], criteria)
-#print(gd.get_attentions(0, 1, [0,1,2], [[0,1,2], [0]], criteria))
+#graph = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
+#features = np.array([[1, 1], [1, 2], [1, 3]])
+#gd = graph_data(graph, features)
+#fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], criteria )
+#print (fv)
+#lst = []
+#for i in range(0, len(fv)):
+#    lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], criteria))
+#print(np.array(lst))
+#gd.get_attentions(0, 4, [0,1,2], [[0,1,2], [0]], criteria)
 
 
 # %%
