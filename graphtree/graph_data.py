@@ -64,11 +64,11 @@ class graph_data:
         return(agg.get_score(col))
 
 
-    def get_single_attention(self, index_in_feature_vector : int,
-                                threshold: np.generic, 
-                                depths: List[int], 
-                                attensions: List[np.array], 
-                                aggregators: List[split_criteria]) -> np.generic:
+    def get_attentions(self, index_in_feature_vector : int,
+                        threshold: np.generic, 
+                        depths: List[int], 
+                        attensions: List[np.array], 
+                        aggregators: List[split_criteria]) -> List[List[int]]:
 
         depth_index, attention_index, aggregator_index, col_index = \
             self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.attributes.shape[1]])
@@ -79,9 +79,7 @@ class graph_data:
         pa = p[attention, :]
         col = pa[:, col_index]
         local_attention = agg.get_attention(col, threshold)
-        return(attention[local_attention])
-
-
+        return([[attention[i] for i in local] for local in local_attention])
 
     def get_label(self):
         return (self.label)
@@ -96,7 +94,7 @@ class graph_data:
 #%%
 
 graph = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
-features = np.array([[1, 1], [1, 2], [1, 3]])
+features = np.array([[0, 1], [1, 2], [1, 3]])
 gd = graph_data(graph, features)
 fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], criteria )
 print (fv)
@@ -104,7 +102,8 @@ lst = []
 for i in range(0, len(fv)):
     lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], criteria))
 print(np.array(lst))
-
+gd.get_attentions(0, 3, [0,1,2], [[0,1,2], [0]], criteria)
+#print(gd.get_attentions(0, 1, [0,1,2], [[0,1,2], [0]], criteria))
 
 
 # %%
