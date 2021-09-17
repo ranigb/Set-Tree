@@ -51,7 +51,7 @@ class tree_node:
         self.score = self.criterion.get_score(activations)
         local_attention = self.criterion.get_attention(activations, self.thresh)
         self.attention = [[attention[i] for i in local] for local in local_attention]
-        if (histogram == None):
+        if (not(histogram is np.array)):
             histogram = np.zeros([graph.get_number_of_nodes()])
         histogram[attention] += 1
         if (self.score >= self.thresh):
@@ -85,6 +85,7 @@ class tree_node_learner:
         self.thresh = np.nan
         self.depth = 0
         self.criterion = criteria[0]
+        self.attentions = [[] for i in range(0, len(data))]
 
 
     def get_tree_node(self):
@@ -96,8 +97,6 @@ class tree_node_learner:
             for i in range(0, self.attention_depth):
                 attention_source_learner = attention_source_learner.parent
 
-            attention_source_learner = attention_source_learner.tree_node    
-        
         if (attention_source_learner == None):
             attention_source = None
         else:
@@ -138,6 +137,7 @@ class tree_node_learner:
                 break
             p = p.parent
             attentions += p.attentions[graph_index]
+        self.attentions[graph_index] = attentions
         return(g.get_feature_vector(self.graph_depths, attentions, self.criteria))
 
 
@@ -188,6 +188,24 @@ class tree_node_learner:
         self.attention_depth = attentions_indices[indices[1]][0]
         self.attention_index = attentions_indices[indices[1]][1]
         self.criterion = self.criteria[indices[2]]
+
+    def fit(self, max_number_of_leafs:int = 10, min_tree_size:int = 10, min_gain:float = 0.0):
+        leafs = [self]
+        potential_gains = [self.find_best_split()]
+        for i in range(1,max_number_of_leafs):
+            index_max = np.argmax(potential_gains)
+            gain = potential_gains[index_max]
+            if (gain < min_gain):
+                break
+            leaf_to_split = leafs.pop(index_max)
+            potential_gains.pop(index_max)
+            leaf_to_split.apply_best_split()
+            lte = leaf_to_split.lte
+            gt = leaf_to_split.gt
+            potential_gains += [lte.find_best_split(), gt.find_best_split()]
+            leafs += [lte, gt]
+
+
 
 
 

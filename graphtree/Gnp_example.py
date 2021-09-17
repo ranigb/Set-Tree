@@ -34,14 +34,13 @@ print("tree node created")
 
 
 # %%
-potential_gain = tree.find_best_split()
-print(potential_gain)
 
-tree.apply_best_split()
-
-# %%
+tree.fit(max_number_of_leafs = 5)
 prediction_tree = tree.get_tree_node()
-
-preds = [prediction_tree.eval(x)[0] for x in train]
-
 prediction_tree.print()
+
+
+preds = np.array([prediction_tree.eval(x)[0] for x in train ])
+L2 = np.sum((preds - target)**2)
+print(L2)
+# %%
