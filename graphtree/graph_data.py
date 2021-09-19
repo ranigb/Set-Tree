@@ -1,4 +1,5 @@
 #%%
+from xmlrpc.client import boolean
 import numpy as np
 from numpy.linalg import matrix_power
 from typing import Callable, List
@@ -55,7 +56,8 @@ class graph_data:
     def get_single_feature(self, index_in_feature_vector : int, 
                                 depths: List[int], 
                                 attensions: List[np.array], 
-                                aggregators: List[split_criteria]) -> np.generic:
+                                aggregators: List[split_criteria],
+                                threshold: np.generic = 0) -> np.generic:
 
         depth_index, attention_index, aggregator_index, col_index = \
             self.get_index(index_in_feature_vector, [len(depths), len(attensions), len(aggregators), self.features.shape[1]])
@@ -65,7 +67,7 @@ class graph_data:
         p = self.propagate(depth)
         pa = p[attention, :]
         col = pa[:, col_index]
-        return(agg.get_score(col))
+        return(agg.get_score(col), agg.get_attention(col, threshold), attention)
 
 
     def get_attentions(self, index_in_feature_vector : int,
