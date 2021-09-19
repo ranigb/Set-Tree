@@ -1,7 +1,7 @@
 #%%
 from operator import attrgetter
 import numpy as np
-from typing import Callable, List, Tuple
+from typing import Callable, List, Tuple, NamedTuple
 from tree_node import tree_node
 
 
@@ -10,29 +10,29 @@ from split_criteria import split_criteria, criteria
 from graph_data import graph_data
 from sklearn.tree import DecisionTreeRegressor
 
+class tree_node_learner_parameters(NamedTuple):
+    graph_depths: List[int] = [0, 1, 2],
+    max_attention_depth: int = 2,
+    criteria: List[split_criteria] = criteria,
+    max_number_of_leafs:int = 10, 
+    min_leaf_size:int = 10, 
+    min_gain:float = 0.0,
+
 class tree_node_learner:
-    def __init__(self, data: List[graph_data], 
+    def __init__(self,  
+                    parms: tree_node_learner_parameters,
                     active: List[int], 
-                    target: np.array,
-                    parent: "tree_node_learner" = None,
-                    graph_depths: List[int] = [0, 1, 2],
-                    max_attention_depth: int = 2,
-                    criteria: List[split_criteria] = criteria):
-        self.data = data
+                    parent: "tree_node_learner" = None):
         self.active = active
         self.lte = None
         self.gt = None
         self.parent = parent
-        self.value = np.mean(target[active])
-        self.graph_depths = graph_depths
-        self.max_attention_depth = max_attention_depth
-        self.criteria = criteria
-        self.target = target
+        self.parms = parms
 
     def get_attentions_indices(self):
         attention_indices = [(-1, -1)] # marking the whole set
         p = self
-        for i in range(0, self.max_attention_depth):
+        for i in range(0, self.parms.max_attention_depth):
             if (p.parent == None):
                 break
             p = p.parent
@@ -42,24 +42,29 @@ class tree_node_learner:
 
 
 
-    def get_feature_vector_for_item(self, graph_index: int):
-        g = self.data[graph_index]
+    def get_feature_vector_for_item(self, X, graph_index: int):
+        g = X[graph_index]
         p = self
         attentions = []
-        for i in range(0, self.max_attention_depth):
+        for i in range(0, self.parms.max_attention_depth):
             if (p.parent == None):
                 break
             p = p.parent
             attentions = p.attentions[graph_index] + attentions
         attentions = [list(range(0,g.get_number_of_nodes()))] + attentions
         self.available_attentions[graph_index] = attentions 
-        return(g.get_feature_vector(self.graph_depths, attentions, self.criteria))
+        return(g.get_feature_vector(self.parms.graph_depths, attentions, self.parms.criteria))
 
 
-    def find_best_split(self):
-        labels = self.target[self.active]
-        self.available_attentions =  [[] for i in range(0, len(self.data))]
-        data = np.array([self.get_feature_vector_for_item(i) for i in self.active])
+    def find_best_split(self, X:List[graph_data], y:np.array):
+        labels = y[self.active]
+        self.value = np.mean(labels)
+        self.feature_dimension = X[0].get_number_of_features()
+        if (len(self.active) < self.parms.min_leaf_size):
+            self.potential_gain = 0.0
+            return(0.0)
+        self.available_attentions =  [[] for i in range(0, len(X))]
+        data = np.array([self.get_feature_vector_for_item(X, i) for i in self.active])
         stump = DecisionTreeRegressor(max_depth=1)
         stump.fit(data, labels)
         if (len(stump.tree_.value) < 3):
@@ -78,74 +83,69 @@ class tree_node_learner:
                 len(self.active) * stump.tree_.value[0][0][0] * stump.tree_.value[0][0][0]
         return(self.potential_gain)
 
-    def apply_best_split(self):
-        lte_node = tree_node_learner(data = self.data, \
+    def apply_best_split(self,X:List[graph_data] , y:np.array):
+        lte_node = tree_node_learner( parms=self.parms,\
                     active= self.active_lte, \
-                    target = self.target, \
-                    parent = self, \
-                    graph_depths = self.graph_depths, \
-                    max_attention_depth = self.max_attention_depth, \
-                    criteria = self.criteria )
+                    parent = self)
+        lte_node.value = np.mean(y[self.active_lte])
 
-        gt_node = tree_node_learner(data = self.data, \
+        gt_node = tree_node_learner( parms=self.parms,\
                     active= self.active_gt, \
-                    target = self.target, \
-                    parent = self, \
-                    graph_depths = self.graph_depths, \
-                    max_attention_depth = self.max_attention_depth, \
-                    criteria = self.criteria )
+                    parent = self)
+        gt_node.value = np.mean(y[self.active_gt])
 
         self.gt = gt_node
         self.lte = lte_node
         # update split attributes
         attentions_indices = self.get_attentions_indices()
-        indices = self.data[0].get_index(self.feature_index, \
-            [len(self.graph_depths), len(attentions_indices), len(self.criteria), self.data[0].get_number_of_features()])
-        self.depth = self.graph_depths[indices[0]]
+        indices = X[0].get_index(self.feature_index, \
+            [len(self.parms.graph_depths), len(attentions_indices), len(self.parms.criteria), X[0].get_number_of_features()])
+        self.depth = self.parms.graph_depths[indices[0]]
         self.attention_depth = attentions_indices[indices[1]][0]
         self.attention_index = attentions_indices[indices[1]][1]
-        self.criterion = self.criteria[indices[2]]
+        self.criterion = self.parms.criteria[indices[2]]
         self.feature = indices[3]
 
 
         ## calculate attention for current node
-        self.attentions = [[] for i in range(0, len(self.data))]
+        self.attentions = [[] for i in range(0, len(X))]
         for i in self.active:
-            g = self.data[i]
-            _, new_attention, _ = g.get_single_feature(self.feature_index, self.graph_depths, \
-                self.available_attentions[i], self.criteria, self.thresh)
+            g = X[i]
+            _, new_attention, _ = g.get_single_feature(self.feature_index, self.parms.graph_depths, \
+                self.available_attentions[i], self.parms.criteria, self.thresh)
             self.attentions[i] = new_attention
 
-    def fit(self, max_number_of_leafs:int = 10, min_tree_size:int = 10, min_gain:float = 0.0):
+    def fit(self, X: List[graph_data], y:np.array):
         tiny = np.finfo(float).tiny
+        min_gain = self.parms.min_gain
         if (min_gain <= tiny): # this is to prevent trying to split a node with zero gain
             min_gain = tiny
         leafs = [self]
         total_gain = 0
-        potential_gains = [self.find_best_split()]
-        for i in range(1,max_number_of_leafs):
+        potential_gains = [self.find_best_split(X, y)]
+        for i in range(1,self.parms.max_number_of_leafs):
             index_max = np.argmax(potential_gains)
             gain = potential_gains[index_max]
             if (gain < min_gain):
                 break
             leaf_to_split = leafs.pop(index_max)
             potential_gains.pop(index_max)
-            leaf_to_split.apply_best_split()
+            leaf_to_split.apply_best_split(X, y)
             lte = leaf_to_split.lte
             gt = leaf_to_split.gt
-            potential_gains += [lte.find_best_split(), gt.find_best_split()]
+            potential_gains += [lte.find_best_split(X,y), gt.find_best_split(X,y)]
             leafs += [lte, gt]
             total_gain += gain
 
         # compute L2 error
         L2 = 0
         for l in leafs:
-            labels = l.target[l.active]
+            labels = y[l.active]
             L2 += sum((l.value - labels)**2 )
         return (L2, total_gain)
 
 
-    def eval(self, g:graph_data):
+    def predict(self, g:graph_data):
         attentions_cache = [[list(range(0,g.get_number_of_nodes()))]]
         histogram=np.zeros(g.get_number_of_nodes())
         p = self
@@ -154,7 +154,7 @@ class tree_node_learner:
             for a in attentions_cache:
                 attentions += a
 
-            score, new_attentions, selected_attention = g.get_single_feature(p.feature_index, p.graph_depths, attentions, p.criteria, p.thresh)
+            score, new_attentions, selected_attention = g.get_single_feature(p.feature_index, p.parms.graph_depths, attentions, p.parms.criteria, p.thresh)
             histogram[selected_attention] += 1
             if (len(attentions_cache) > p.max_attention_depth):
                 attentions_cache.pop(1)
@@ -167,18 +167,18 @@ class tree_node_learner:
 
     def get_tree_node(self):
         if (self.gt == None): # this is a leaf node
-            self.tree_node = tree_node(None, None, -1, 0, self.value, -1, -1, self.max_attention_depth, None)
+            self.tree_node = tree_node(None, None, -1, 0, self.value, -1, -1, self.parms.max_attention_depth, None)
         else:
             first_active = self.active[0]
-            g = self.data[first_active]
+            g = graph_data(graph=np.zeros((1,1)), features=np.zeros((1,self.feature_dimension)))
             depth_index, attention_index, aggregator_index, col_index = \
             g.get_index(self.feature_index, \
-                [len(self.graph_depths), len(self.available_attentions[first_active]),\
-                     len(self.criteria), g.get_number_of_features()])
+                [len(self.parms.graph_depths), len(self.available_attentions[first_active]),\
+                     len(self.parms.criteria), self.feature_dimension])
 
             self.tree_node = tree_node(None, None, col_index,\
-                self.thresh, self.value, self.graph_depths[depth_index], \
-                attention_index, self.max_attention_depth, self.criteria[aggregator_index])
+                self.thresh, self.value, self.parms.graph_depths[depth_index], \
+                attention_index, self.parms.max_attention_depth, self.parms.criteria[aggregator_index])
 
             self.tree_node.lte = self.lte.get_tree_node()
             self.tree_node.gt = self.gt.get_tree_node()
@@ -189,7 +189,7 @@ class tree_node_learner:
         if (self.gt == None):
             print(indent, "-->", self.value)
         else:
-            print(indent, "f%d thresh %3f depth %2d function %5s" % (self.feature, self.thresh, self.depth, self.criterion.get_name()))
+            print(indent, "f%d thresh %3f depth %2d function %5s" % (self.feature, self.thresh, self.depth, self.parms.criterion.get_name()))
             self.lte.print(indent + "  ")
             self.gt.print(indent + "  ")
 

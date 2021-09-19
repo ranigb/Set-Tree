@@ -41,7 +41,7 @@ class tree_node:
     
 
 
-    def eval(self, g:graph_data):
+    def predict(self, g:graph_data):
         attentions_cache = [[list(range(0,g.get_number_of_nodes()))]]
         histogram=np.zeros(g.get_number_of_nodes())
         pnt = self
