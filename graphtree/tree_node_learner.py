@@ -157,7 +157,8 @@ class tree_node_learner:
             score, new_attentions, selected_attention = g.get_single_feature(p.feature_index, p.parms.graph_depths, attentions, p.parms.criteria, p.thresh)
             histogram[selected_attention] += 1
             if (len(attentions_cache) > p.max_attention_depth):
-                attentions_cache.pop(1)
+                if (len(attentions_cache) > 1):
+                    attentions_cache.pop(1)
             attentions_cache.append(new_attentions)
             if (score <= p.thresh):
                 p = p.lte

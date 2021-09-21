@@ -12,6 +12,7 @@ from collections import defaultdict
 ###   y_pred[:, i] += self.learning_rate * direction[:, i]   ###
 ###                                                          ###
 ### The same fix should be applied in line 179               ###
+### /usr/local/lib/python3.8/dist-packages/starboost/        ###
 ###                                                          ###
 ################################################################
 
@@ -96,7 +97,6 @@ class graphtree(BaseEstimator, RegressorMixin):
         return self
 
     def fit(self, X:List[graph_data], y:np.array):#, eval_set = None):
-        print("starting fit max_number_of_leafs", self.max_number_of_leafs)
         if (isinstance(X, np.ndarray)):
             X = X[0,:].tolist()
         
@@ -113,7 +113,6 @@ class graphtree(BaseEstimator, RegressorMixin):
         self.tree_learner_ = tree_node_learner(parms, list(range(0, len(X))), None)
         self.train_L2, self.train_total_gain = self.tree_learner_.fit(X, y)
         self.tree_ = self.tree_learner_.get_tree_node()
-        print("done fit")
         return(self)
 
 

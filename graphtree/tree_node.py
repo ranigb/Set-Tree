@@ -58,7 +58,8 @@ class tree_node:
             selected_attention = attention
             histogram[selected_attention] += 1
             if (len(attentions_cache) > pnt.max_attention_depth):
-                attentions_cache.pop(1)
+                if (len(attentions_cache) > 1):
+                    attentions_cache.pop(1)
             attentions_cache.append(new_attentions)
 
             if (score <= pnt.thresh):

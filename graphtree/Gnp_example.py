@@ -1,61 +1,62 @@
 #%%
-import graph_data
 import numpy as np
 from graphtree import graphtree
-from starboost import BoostingClassifier, BoostingRegressor
-from starboost.losses import LogLoss
-#%%
-
-np.random.seed(seed=112433)
-def get_random_gnp(n, p, label):
-    a = np.random.uniform(size = [n, n])
-    a = (a + a.T)/2
-    adj = (a < p).astype(int)
-    features = np.ones([n,1])
-    g = graph_data.graph_data(adj, features, label)
-    return(g)
-
-
-
-def get_sample(n1, p1, n0, p0, count):
-    sample = []
-    target = []
-    for i in range(0, count):
-        sample.append(get_random_gnp(n1, p1, 1))
-        target.append(1)
-        sample.append(get_random_gnp(n0, p0, 0))
-        target.append(0)
-    return(sample,target)
+from starboost import BoostingClassifier
+from tests import Gnp, Gnp2
+from sklearn.metrics import roc_auc_score
+import wandb
+wandb.init(project='gta', entity='mlwell-rgb')
 
 #%%
 
-train,target = get_sample(10, 0.3, 10, 0.2, 100)
-gt = graphtree(max_number_of_leafs=20)
-tree = gt.fit(train, np.array(target))
+np.random.seed(seed=1133)
 
-print("tree node created")
+#%% 
+data_generator = Gnp(10, 0.3, 10, 0.2)
+data_generator = Gnp2(p=0.5, max_size=30)
+X_train,y_train = data_generator.get_sample(1000)
+X_test,y_test = data_generator.get_sample(1000)
 
+
+# %%
+def test(model, X, y):
+    preds = model.predict(X).flatten()
+    L2 = np.mean((preds - y) ** 2) 
+    auc = roc_auc_score(y, preds)
+
+    return(L2, auc)
 
 # %%
 
+def run(max_attention_depth, graph_depth, train_size):
+    n_estimators = 30
+    learning_rate = 0.1
+    gbgta = BoostingClassifier( \
+        init_estimator=graphtree(max_attention_depth=max_attention_depth, graph_depths=list(range(0, graph_depth + 1))), \
+        base_estimator=graphtree(max_attention_depth=max_attention_depth, graph_depths=list(range(0, graph_depth + 1))), \
+        n_estimators = n_estimators,\
+        learning_rate = learning_rate)
 
-tree.print()
-preds = np.array(gt.predict(train))
-L2 = np.sum((preds - target)**2)
-print(L2, gt.train_L2, gt.train_total_gain)
-
-# %%
-
-gbgta = BoostingRegressor( \
-    init_estimator=graphtree(max_number_of_leafs=5),
-    base_estimator=graphtree(max_number_of_leafs=7), \
-    n_estimators = 30,\
-    learning_rate = 0.1)
-y = np.array(target)
-y = y.flatten()
-gbgta.fit(train, y)
-preds = np.array(gbgta.predict(train))
-gbgtaL2 = np.sum((preds - target)**2)
-print("gbgta L2 = ", gbgtaL2)
+    y = np.array(y_train[:train_size])
+    y = y.flatten()
+    gbgta.fit(X_train[:train_size], y)
+    (L2_train, auc_train) = test(gbgta, X_train, y_train)
+    print("Train: L2 error %5f auc %5f" % (L2_train,auc_train))
+    (L2_test, auc_test) = test(gbgta, X_test, y_test)
+    print("Test: L2 error %5f auc %5f" % (L2_test,auc_test))
+    wandb.log({"problem": data_generator.name, "train-size": train_size, 
+                "attention-depth": max_attention_depth,
+                "graph-depth": graph_depth,
+                "n_estimators": n_estimators,
+                "learning_rate": learning_rate,
+                "L2-train": L2_train,
+                "AUC-train": auc_train,
+                "L2-test": L2_test,
+                "AUC_test": auc_test})
+for train_size in [10,20,50,100, 200, 500, 1000]:
+    for attention in range(0,2):
+        for graph_depth in range(0,2):
+            print("*** Training with attention=%d graph-depth=%d train_size=%d***" % (attention, graph_depth, train_size))
+            run(attention, graph_depth, train_size)
 
 # %%
