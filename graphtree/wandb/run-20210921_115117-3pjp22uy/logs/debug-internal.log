@@ -1,0 +1,218 @@
+2021-09-21 11:51:17,741 INFO    MainThread:28095 [internal.py:wandb_internal():86] W&B internal server running at pid: 28095, started at: 2021-09-21 11:51:17.740870
+2021-09-21 11:51:17,745 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: check_version
+2021-09-21 11:51:17,745 INFO    WriterThread:28095 [datastore.py:open_for_write():77] open: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/run-3pjp22uy.wandb
+2021-09-21 11:51:17,746 DEBUG   SenderThread:28095 [sender.py:send():185] send: header
+2021-09-21 11:51:17,746 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: check_version
+2021-09-21 11:51:18,111 DEBUG   SenderThread:28095 [sender.py:send():185] send: run
+2021-09-21 11:51:18,564 INFO    SenderThread:28095 [dir_watcher.py:__init__():169] watching files in: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files
+2021-09-21 11:51:18,564 INFO    SenderThread:28095 [sender.py:_start_run_threads():746] run started: 3pjp22uy with start time 1632214277
+2021-09-21 11:51:18,564 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:51:18,564 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:51:18,565 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: run_start
+2021-09-21 11:51:19,564 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:51:19,700 DEBUG   HandlerThread:28095 [meta.py:__init__():40] meta init
+2021-09-21 11:51:19,700 DEBUG   HandlerThread:28095 [meta.py:__init__():54] meta init done
+2021-09-21 11:51:19,700 DEBUG   HandlerThread:28095 [meta.py:probe():211] probe
+2021-09-21 11:51:19,702 DEBUG   HandlerThread:28095 [meta.py:_setup_git():201] setup git
+2021-09-21 11:51:19,718 DEBUG   HandlerThread:28095 [meta.py:_setup_git():208] setup git done
+2021-09-21 11:51:19,718 DEBUG   HandlerThread:28095 [meta.py:_save_pip():58] save pip
+2021-09-21 11:51:19,719 DEBUG   HandlerThread:28095 [meta.py:_save_pip():72] save pip done
+2021-09-21 11:51:19,719 DEBUG   HandlerThread:28095 [meta.py:probe():249] probe done
+2021-09-21 11:51:19,724 DEBUG   SenderThread:28095 [sender.py:send():185] send: files
+2021-09-21 11:51:19,724 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-metadata.json with policy now
+2021-09-21 11:51:19,729 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 11:51:19,730 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 11:51:20,564 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-metadata.json
+2021-09-21 11:51:20,564 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:20,564 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/requirements.txt
+2021-09-21 11:51:20,726 INFO    Thread-11 :28095 [upload_job.py:push():137] Uploaded file /tmp/tmp0d152tc_wandb/1uyw23os-wandb-metadata.json
+2021-09-21 11:51:22,515 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:51:22,516 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:51:22,516 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:51:22,564 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:51:22,565 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:24,565 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:25,560 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:51:25,561 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:51:25,561 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:51:25,566 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:51:26,566 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:28,567 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:32,569 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:33,438 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:51:33,438 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:51:33,440 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:51:33,569 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:51:35,107 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 11:51:35,107 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 11:51:36,571 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:38,572 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:42,573 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:44,303 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:51:44,304 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:51:44,306 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:51:44,574 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:51:46,575 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:47,786 DEBUG   SenderThread:28095 [sender.py:send():185] send: stats
+2021-09-21 11:51:48,576 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:50,537 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 11:51:50,537 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 11:51:50,577 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:52,578 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:56,580 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:51:57,610 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:51:57,611 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:51:57,612 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:51:58,580 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:52:00,581 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:02,582 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:04,583 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:06,132 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 11:52:06,133 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 11:52:06,584 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:08,585 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:10,586 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:12,587 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:14,588 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:16,793 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:52:16,794 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:52:16,794 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:52:17,590 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:52:17,867 DEBUG   SenderThread:28095 [sender.py:send():185] send: stats
+2021-09-21 11:52:18,590 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:20,591 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:21,515 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 11:52:21,516 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 11:52:22,592 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:24,593 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:26,594 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:28,595 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:30,596 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:32,597 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:34,598 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:36,599 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:36,962 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 11:52:36,962 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 11:52:38,600 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:40,601 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:42,602 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:44,765 DEBUG   SenderThread:28095 [sender.py:send():185] send: history
+2021-09-21 11:52:44,766 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:52:44,767 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:52:45,374 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:45,375 DEBUG   SenderThread:28095 [sender.py:send():185] send: telemetry
+2021-09-21 11:52:45,375 DEBUG   SenderThread:28095 [sender.py:send():185] send: exit
+2021-09-21 11:52:45,375 INFO    SenderThread:28095 [sender.py:send_exit():294] handling exit code: 0
+2021-09-21 11:52:45,375 INFO    SenderThread:28095 [sender.py:send_exit():296] handling runtime: 86
+2021-09-21 11:52:45,375 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:52:45,376 INFO    SenderThread:28095 [sender.py:send_exit():306] send defer
+2021-09-21 11:52:45,376 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:45,377 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:45,377 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 0
+2021-09-21 11:52:45,377 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:45,377 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 0
+2021-09-21 11:52:45,377 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 1
+2021-09-21 11:52:45,378 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:45,378 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 1
+2021-09-21 11:52:45,449 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:45,449 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 1
+2021-09-21 11:52:45,449 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 2
+2021-09-21 11:52:45,449 DEBUG   SenderThread:28095 [sender.py:send():185] send: stats
+2021-09-21 11:52:45,450 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:45,450 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 2
+2021-09-21 11:52:45,451 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:45,451 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 2
+2021-09-21 11:52:45,451 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 3
+2021-09-21 11:52:45,451 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:45,451 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 3
+2021-09-21 11:52:45,452 DEBUG   SenderThread:28095 [sender.py:send():185] send: summary
+2021-09-21 11:52:45,452 INFO    SenderThread:28095 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 11:52:45,452 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:45,452 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 3
+2021-09-21 11:52:45,452 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 4
+2021-09-21 11:52:45,453 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:45,453 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 4
+2021-09-21 11:52:45,453 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:45,453 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 4
+2021-09-21 11:52:45,482 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:45,604 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:52:45,604 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:45,907 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 5
+2021-09-21 11:52:45,907 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:45,908 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:45,908 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 5
+2021-09-21 11:52:45,908 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:45,908 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 5
+2021-09-21 11:52:45,908 INFO    SenderThread:28095 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-09-21 11:52:46,009 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:46,604 INFO    Thread-8  :28095 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/config.yaml
+2021-09-21 11:52:46,605 INFO    SenderThread:28095 [dir_watcher.py:finish():313] scan: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files
+2021-09-21 11:52:46,605 INFO    SenderThread:28095 [dir_watcher.py:finish():327] scan save: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log output.log
+2021-09-21 11:52:46,605 INFO    SenderThread:28095 [dir_watcher.py:finish():327] scan save: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/config.yaml config.yaml
+2021-09-21 11:52:46,605 INFO    SenderThread:28095 [dir_watcher.py:finish():327] scan save: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-metadata.json wandb-metadata.json
+2021-09-21 11:52:46,605 INFO    SenderThread:28095 [dir_watcher.py:finish():327] scan save: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/requirements.txt requirements.txt
+2021-09-21 11:52:46,608 INFO    SenderThread:28095 [dir_watcher.py:finish():327] scan save: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json wandb-summary.json
+2021-09-21 11:52:46,609 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 6
+2021-09-21 11:52:46,609 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:46,615 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:46,622 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 6
+2021-09-21 11:52:46,623 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:46,623 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 6
+2021-09-21 11:52:46,623 INFO    SenderThread:28095 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-21 11:52:46,717 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:46,717 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:46,819 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:46,819 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:46,921 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:46,921 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,023 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,030 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,133 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,133 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,235 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,236 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,338 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,339 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,441 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,442 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,544 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,544 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,551 INFO    Thread-12 :28095 [upload_job.py:push():137] Uploaded file /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/output.log
+2021-09-21 11:52:47,557 INFO    Thread-15 :28095 [upload_job.py:push():137] Uploaded file /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/wandb-summary.json
+2021-09-21 11:52:47,569 INFO    Thread-13 :28095 [upload_job.py:push():137] Uploaded file /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/config.yaml
+2021-09-21 11:52:47,635 INFO    Thread-14 :28095 [upload_job.py:push():137] Uploaded file /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/files/requirements.txt
+2021-09-21 11:52:47,646 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,646 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,748 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:47,749 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:47,836 INFO    Thread-7  :28095 [sender.py:transition_state():319] send defer: 7
+2021-09-21 11:52:47,837 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:47,838 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 7
+2021-09-21 11:52:47,838 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:47,838 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 7
+2021-09-21 11:52:47,851 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:48,244 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 8
+2021-09-21 11:52:48,245 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:48,246 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:48,247 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 8
+2021-09-21 11:52:48,247 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:48,247 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 8
+2021-09-21 11:52:48,248 INFO    SenderThread:28095 [sender.py:transition_state():319] send defer: 9
+2021-09-21 11:52:48,249 DEBUG   SenderThread:28095 [sender.py:send():185] send: final
+2021-09-21 11:52:48,251 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: defer
+2021-09-21 11:52:48,251 INFO    HandlerThread:28095 [handler.py:handle_request_defer():143] handle defer: 9
+2021-09-21 11:52:48,251 DEBUG   SenderThread:28095 [sender.py:send():185] send: footer
+2021-09-21 11:52:48,251 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: defer
+2021-09-21 11:52:48,251 INFO    SenderThread:28095 [sender.py:send_request_defer():315] handle sender defer: 9
+2021-09-21 11:52:48,349 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-21 11:52:48,350 DEBUG   SenderThread:28095 [sender.py:send_request():199] send_request: poll_exit
+2021-09-21 11:52:48,350 INFO    SenderThread:28095 [file_pusher.py:join():182] waiting for file pusher
+2021-09-21 11:52:49,151 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: get_summary
+2021-09-21 11:52:49,153 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: sampled_history
+2021-09-21 11:52:49,154 DEBUG   HandlerThread:28095 [handler.py:handle_request():126] handle_request: shutdown
+2021-09-21 11:52:49,155 INFO    HandlerThread:28095 [handler.py:finish():683] shutting down handler
+2021-09-21 11:52:49,252 INFO    WriterThread:28095 [datastore.py:close():281] close: /root/Source/Set-Tree/graphtree/wandb/run-20210921_115117-3pjp22uy/run-3pjp22uy.wandb
+2021-09-21 11:52:50,148 INFO    SenderThread:28095 [sender.py:finish():985] shutting down sender
+2021-09-21 11:52:50,148 INFO    SenderThread:28095 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-21 11:52:50,151 INFO    SenderThread:28095 [file_pusher.py:join():182] waiting for file pusher
+2021-09-21 11:52:50,154 INFO    MainThread:28095 [internal.py:handle_exit():76] Internal process exited

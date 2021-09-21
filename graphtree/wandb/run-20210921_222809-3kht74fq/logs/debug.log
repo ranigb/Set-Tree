@@ -1,0 +1,26 @@
+2021-09-21 22:28:09,570 INFO    MainThread:11547 [wandb_setup.py:_flush():69] setting env: {}
+2021-09-21 22:28:09,570 INFO    MainThread:11547 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [wandb_init.py:_log_setup():348] Logging user logs to /root/Source/Set-Tree/graphtree/wandb/run-20210921_222809-3kht74fq/logs/debug.log
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [wandb_init.py:_log_setup():349] Logging internal logs to /root/Source/Set-Tree/graphtree/wandb/run-20210921_222809-3kht74fq/logs/debug-internal.log
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [wandb_init.py:_jupyter_setup():300] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7fc793b12a60>
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [wandb_init.py:init():381] calling init triggers
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [wandb_init.py:init():386] wandb.init called with sweep_config: {}
+config: {}
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [wandb_init.py:init():430] starting backend
+2021-09-21 22:28:09,571 INFO    MainThread:11547 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2021-09-21 22:28:09,573 INFO    MainThread:11547 [backend.py:ensure_launched():135] starting backend process...
+2021-09-21 22:28:09,579 INFO    MainThread:11547 [backend.py:ensure_launched():139] started backend process with pid: 12977
+2021-09-21 22:28:09,580 INFO    MainThread:11547 [wandb_init.py:init():435] backend started and connected
+2021-09-21 22:28:09,597 INFO    MainThread:11547 [wandb_run.py:_label_probe_notebook():819] probe notebook
+2021-09-21 22:28:09,597 INFO    MainThread:11547 [wandb_run.py:_label_probe_notebook():826] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2021-09-21 22:28:09,598 INFO    MainThread:11547 [wandb_init.py:init():494] updated telemetry
+2021-09-21 22:28:09,598 INFO    MainThread:11547 [wandb_init.py:init():517] communicating current version
+2021-09-21 22:28:10,449 INFO    MainThread:11547 [wandb_init.py:init():522] got version response 
+2021-09-21 22:28:10,449 INFO    MainThread:11547 [wandb_init.py:init():530] communicating run to backend with 30 second timeout
+2021-09-21 22:28:10,956 INFO    MainThread:11547 [wandb_init.py:init():557] starting run threads in backend
+2021-09-21 22:28:11,993 INFO    MainThread:11547 [wandb_run.py:_console_start():1605] atexit reg
+2021-09-21 22:28:11,993 INFO    MainThread:11547 [wandb_run.py:_redirect():1479] redirect: SettingsConsole.WRAP
+2021-09-21 22:28:11,994 INFO    MainThread:11547 [wandb_run.py:_redirect():1516] Wrapping output streams.
+2021-09-21 22:28:11,996 INFO    MainThread:11547 [wandb_run.py:_redirect():1540] Redirects installed.
+2021-09-21 22:28:11,996 INFO    MainThread:11547 [wandb_init.py:init():582] run started, returning control to user process
+2021-09-21 22:31:22,722 INFO    MainThread:11547 [wandb_run.py:finish():1275] finishing run mlwell-rgb/Set-Tree-graphtree/3kht74fq

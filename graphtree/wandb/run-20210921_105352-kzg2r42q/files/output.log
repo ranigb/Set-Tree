@@ -1,0 +1,261 @@
+
+*** Training with attention=0 graph-depth=0 train_size=10***
+100%|██████████| 30/30 [00:00<00:00, 321.25it/s]
+Train: L2 error 0.498000 auc 0.503698
+100%|██████████| 30/30 [00:00<00:00, 309.85it/s]
+Test: L2 error 0.506000 auc 0.494518
+*** Training with attention=0 graph-depth=1 train_size=10***
+  0%|          | 0/30 [00:00<?, ?it/s]
+Train: L2 error 0.483000 auc 0.517625
+Test: L2 error 0.473000 auc 0.527184
+
+100%|██████████| 30/30 [00:00<00:00, 453.47it/s]
+Train: L2 error 0.499000 auc 0.502764
+100%|██████████| 30/30 [00:00<00:00, 347.30it/s]
+Test: L2 error 0.504000 auc 0.496558
+*** Training with attention=1 graph-depth=1 train_size=10***
+100%|██████████| 30/30 [00:00<00:00, 74.82it/s]
+Train: L2 error 0.483000 auc 0.517625
+Test: L2 error 0.473000 auc 0.527184
+*** Training with attention=0 graph-depth=0 train_size=20***
+Train: L2 error 0.458000 auc 0.542416
+100%|██████████| 30/30 [00:00<00:00, 82.76it/s]
+Test: L2 error 0.503000 auc 0.497056
+*** Training with attention=0 graph-depth=1 train_size=20***
+Train: L2 error 0.298000 auc 0.702217
+ 20%|██        | 6/30 [00:00<00:00, 54.77it/s]
+Test: L2 error 0.308000 auc 0.692075
+
+100%|██████████| 30/30 [00:00<00:00, 47.79it/s]
+Train: L2 error 0.460000 auc 0.540487
+100%|██████████| 30/30 [00:00<00:00, 55.28it/s]
+Test: L2 error 0.504000 auc 0.496098
+*** Training with attention=1 graph-depth=1 train_size=20***
+Train: L2 error 0.065000 auc 0.934608
+100%|██████████| 30/30 [00:01<00:00, 23.69it/s]
+Test: L2 error 0.067000 auc 0.932866
+*** Training with attention=0 graph-depth=0 train_size=50***
+Train: L2 error 0.463000 auc 0.536617
+ 33%|███▎      | 10/30 [00:00<00:01, 17.04it/s]
+Test: L2 error 0.499000 auc 0.500888
+
+100%|██████████| 30/30 [00:01<00:00, 17.70it/s]
+Train: L2 error 0.195000 auc 0.804363
+ 60%|██████    | 18/30 [00:00<00:00, 18.24it/s]
+Test: L2 error 0.221000 auc 0.778757
+
+100%|██████████| 30/30 [00:01<00:00, 17.63it/s]
+Train: L2 error 0.248000 auc 0.751607
+ 30%|███       | 9/30 [00:00<00:01, 20.06it/s]
+Test: L2 error 0.249000 auc 0.750873
+
+100%|██████████| 30/30 [00:01<00:00, 18.78it/s]
+Train: L2 error 0.004000 auc 0.995976
+ 33%|███▎      | 10/30 [00:00<00:01, 11.16it/s]
+Test: L2 error 0.001000 auc 0.998998
+
+100%|██████████| 30/30 [00:02<00:00, 12.33it/s]
+Train: L2 error 0.462000 auc 0.537155
+ 67%|██████▋   | 20/30 [00:01<00:00, 10.68it/s]
+Test: L2 error 0.504000 auc 0.495742
+
+100%|██████████| 30/30 [00:02<00:00, 11.50it/s]
+Train: L2 error 0.156000 auc 0.844018
+ 23%|██▎       | 7/30 [00:00<00:02,  7.94it/s]
+Test: L2 error 0.183000 auc 0.817037
+
+
+100%|██████████| 30/30 [00:03<00:00,  7.60it/s]
+Train: L2 error 0.097000 auc 0.902438
+ 27%|██▋       | 8/30 [00:01<00:03,  5.92it/s]
+Test: L2 error 0.118000 auc 0.881792
+
+
+100%|██████████| 30/30 [00:04<00:00,  6.19it/s]
+Train: L2 error 0.047000 auc 0.952968
+Test: L2 error 0.078000 auc 0.921976
+*** Training with attention=0 graph-depth=0 train_size=200***
+
+
+100%|██████████| 30/30 [00:05<00:00,  5.33it/s]
+Train: L2 error 0.475000 auc 0.523957
+
+ 30%|███       | 9/30 [00:01<00:03,  5.27it/s]
+Test: L2 error 0.490000 auc 0.509658
+
+
+
+100%|██████████| 30/30 [00:06<00:00,  4.93it/s]
+Train: L2 error 0.117000 auc 0.882834
+ 10%|█         | 3/30 [00:00<00:06,  4.09it/s]
+Test: L2 error 0.126000 auc 0.873943
+
+
+
+
+100%|██████████| 30/30 [00:08<00:00,  3.73it/s]
+Train: L2 error 0.177000 auc 0.822856
+ 20%|██        | 6/30 [00:01<00:05,  4.47it/s]
+Test: L2 error 0.218000 auc 0.781915
+
+
+
+100%|██████████| 30/30 [00:07<00:00,  3.91it/s]
+Train: L2 error 0.003000 auc 0.996982
+Test: L2 error 0.001000 auc 0.998998
+*** Training with attention=0 graph-depth=0 train_size=500***
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:15<00:00,  1.96it/s]
+Train: L2 error 0.452000 auc 0.545848
+Test: L2 error 0.513000 auc 0.486296
+*** Training with attention=0 graph-depth=1 train_size=500***
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:13<00:00,  2.21it/s]
+Train: L2 error 0.095000 auc 0.904871
+Test: L2 error 0.115000 auc 0.884978
+*** Training with attention=1 graph-depth=0 train_size=500***
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:19<00:00,  1.52it/s]
+Train: L2 error 0.021000 auc 0.978969
+Test: L2 error 0.042000 auc 0.957992
+*** Training with attention=1 graph-depth=1 train_size=500***
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:21<00:00,  1.37it/s]
+Train: L2 error 0.016000 auc 0.983963
+Test: L2 error 0.036000 auc 0.963984
+*** Training with attention=0 graph-depth=0 train_size=1000***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:30<00:00,  1.01s/it]
+Train: L2 error 0.465000 auc 0.532313
+Test: L2 error 0.501000 auc 0.498148
+*** Training with attention=0 graph-depth=1 train_size=1000***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:28<00:00,  1.07it/s]
+Train: L2 error 0.084000 auc 0.915709
+Test: L2 error 0.100000 auc 0.899900
+*** Training with attention=1 graph-depth=0 train_size=1000***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:42<00:00,  1.42s/it]
+Train: L2 error 0.001000 auc 0.998994
+Test: L2 error 0.004000 auc 0.995992
+*** Training with attention=1 graph-depth=1 train_size=1000***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:59<00:00,  1.98s/it]
+Train: L2 error 0.001000 auc 0.998994
+Test: L2 error 0.013000 auc 0.986974
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "function", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}

@@ -1,0 +1,32 @@
+{
+    "os": "Linux-4.19.128-microsoft-standard-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "heartbeatAt": "2021-09-21T08:11:44.609793",
+    "startedAt": "2021-09-21T08:11:36.845677",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--ip=127.0.0.1",
+        "--stdin=9003",
+        "--control=9001",
+        "--hb=9000",
+        "--Session.signature_scheme=\"hmac-sha256\"",
+        "--Session.key=b\"83190510-8e9c-4a70-ba20-fb84f152d706\"",
+        "--shell=9002",
+        "--transport=\"tcp\"",
+        "--iopub=9004",
+        "--f=/tmp/tmp-3831h9lSKsskCYVz.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/ranigb/Set-Tree.git",
+        "commit": "d1468b5f44c23f5ad3e27a87d4cb1581759749f7"
+    },
+    "email": "joe@joe",
+    "root": "/root/Source/Set-Tree",
+    "host": "DESKTOP-JLFVGRP",
+    "username": "root",
+    "executable": "/bin/python3"
+}

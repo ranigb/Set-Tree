@@ -1,0 +1,1 @@
+{"problem": "BA vs Watts Strogatz", "train-size": 1000, "attention-depth": 1, "graph-depth": 1, "n_estimators": 30, "learning_rate": 0.1, "L2-train": 0.001, "AUC-train": 0.9989939637826961, "L2-test": 0.013, "AUC_test": 0.9870738659108741, "_runtime": 148, "_timestamp": 1632241472, "_step": 6, "_wandb": {"runtime": 146}}

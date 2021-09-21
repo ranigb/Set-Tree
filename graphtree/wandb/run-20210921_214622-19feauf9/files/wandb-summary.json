@@ -1,0 +1,1 @@
+{"problem": "BA one", "train-size": 1000, "attention-depth": 2, "graph-depth": 1, "n_estimators": 30, "learning_rate": 0.1, "L2-train": 0.108, "AUC-train": 0.891807567230269, "L2-test": 0.131, "AUC_test": 0.8712484993997598, "_runtime": 344, "_timestamp": 1632250326, "_step": 6, "_wandb": {"runtime": 343}}

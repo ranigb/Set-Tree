@@ -1,0 +1,4 @@
+
+*** Training with attention=0 graph-depth=0 train_size=10***
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "Run", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}
+{"BoostingClassifier": "ABCMeta", "Gnp": "type", "Gnp2": "type", "X_test": "list", "X_train": "list", "attention": "int", "data_generator": "Gnp2", "graph_depth": "int", "graphtree": "type", "np": "module", "os": "module", "roc_auc_score": "function", "run": "Run", "sys": "module", "test": "function", "train_size": "int", "wandb": "module", "y_test": "ndarray", "y_train": "ndarray"}

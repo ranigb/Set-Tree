@@ -1,0 +1,72 @@
+*** Training with attention=1 graph-depth=1 train_size=10***
+Train: L2 error 0.429000 auc 0.578611
+100%|██████████| 30/30 [00:00<00:00, 369.91it/s]
+Test: L2 error 0.418000 auc 0.560414
+*** Training with attention=1 graph-depth=1 train_size=20***
+
+100%|██████████| 30/30 [00:00<00:00, 41.74it/s]
+Train: L2 error 0.405000 auc 0.598059
+Test: L2 error 0.375000 auc 0.614967
+*** Training with attention=1 graph-depth=1 train_size=50***
+
+100%|██████████| 30/30 [00:02<00:00, 13.99it/s]
+Train: L2 error 0.394000 auc 0.608203
+Test: L2 error 0.385000 auc 0.608512
+*** Training with attention=1 graph-depth=1 train_size=100***
+
+
+
+100%|██████████| 30/30 [00:04<00:00,  6.38it/s]
+Train: L2 error 0.276000 auc 0.726291
+Test: L2 error 0.294000 auc 0.699291
+*** Training with attention=1 graph-depth=1 train_size=200***
+
+
+
+
+
+100%|██████████| 30/30 [00:10<00:00,  2.92it/s]
+Train: L2 error 0.233000 auc 0.767887
+Test: L2 error 0.259000 auc 0.738239
+*** Training with attention=1 graph-depth=1 train_size=500***
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:23<00:00,  1.26it/s]
+Train: L2 error 0.174000 auc 0.826611
+Test: L2 error 0.237000 auc 0.760195
+*** Training with attention=1 graph-depth=1 train_size=1000***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████| 30/30 [00:45<00:00,  1.52s/it]
+Train: L2 error 0.151000 auc 0.850120
+Test: L2 error 0.213000 auc 0.783073

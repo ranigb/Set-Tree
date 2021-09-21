@@ -1,0 +1,60 @@
+2021-09-21 19:07:08,836 INFO    MainThread:24762 [internal.py:wandb_internal():86] W&B internal server running at pid: 24762, started at: 2021-09-21 19:07:08.836148
+2021-09-21 19:07:08,840 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: check_version
+2021-09-21 19:07:08,840 DEBUG   SenderThread:24762 [sender.py:send():185] send: header
+2021-09-21 19:07:08,841 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: check_version
+2021-09-21 19:07:08,841 INFO    WriterThread:24762 [datastore.py:open_for_write():77] open: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/run-3ofmraag.wandb
+2021-09-21 19:07:09,194 DEBUG   SenderThread:24762 [sender.py:send():185] send: run
+2021-09-21 19:07:09,658 INFO    SenderThread:24762 [dir_watcher.py:__init__():169] watching files in: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files
+2021-09-21 19:07:09,658 INFO    SenderThread:24762 [sender.py:_start_run_threads():746] run started: 3ofmraag with start time 1632240428
+2021-09-21 19:07:09,658 DEBUG   SenderThread:24762 [sender.py:send():185] send: summary
+2021-09-21 19:07:09,658 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: run_start
+2021-09-21 19:07:09,659 INFO    SenderThread:24762 [sender.py:_save_file():879] saving file wandb-summary.json with policy end
+2021-09-21 19:07:10,659 INFO    Thread-8  :24762 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files/wandb-summary.json
+2021-09-21 19:07:10,742 DEBUG   HandlerThread:24762 [meta.py:__init__():40] meta init
+2021-09-21 19:07:10,743 DEBUG   HandlerThread:24762 [meta.py:__init__():54] meta init done
+2021-09-21 19:07:10,743 DEBUG   HandlerThread:24762 [meta.py:probe():211] probe
+2021-09-21 19:07:10,743 DEBUG   HandlerThread:24762 [meta.py:_setup_git():201] setup git
+2021-09-21 19:07:10,759 DEBUG   HandlerThread:24762 [meta.py:_setup_git():208] setup git done
+2021-09-21 19:07:10,759 DEBUG   HandlerThread:24762 [meta.py:_save_pip():58] save pip
+2021-09-21 19:07:10,759 DEBUG   HandlerThread:24762 [meta.py:_save_pip():72] save pip done
+2021-09-21 19:07:10,759 DEBUG   HandlerThread:24762 [meta.py:probe():249] probe done
+2021-09-21 19:07:10,762 DEBUG   SenderThread:24762 [sender.py:send():185] send: files
+2021-09-21 19:07:10,763 INFO    SenderThread:24762 [sender.py:_save_file():879] saving file wandb-metadata.json with policy now
+2021-09-21 19:07:10,770 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:07:10,770 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:07:11,659 INFO    Thread-8  :24762 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files/requirements.txt
+2021-09-21 19:07:11,659 INFO    Thread-8  :24762 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files/wandb-metadata.json
+2021-09-21 19:07:11,660 INFO    Thread-8  :24762 [dir_watcher.py:_on_file_created():217] file/dir created: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files/output.log
+2021-09-21 19:07:11,749 INFO    Thread-11 :24762 [upload_job.py:push():137] Uploaded file /tmp/tmpettjnkofwandb/7emsgnwd-wandb-metadata.json
+2021-09-21 19:07:13,660 INFO    Thread-8  :24762 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files/output.log
+2021-09-21 19:07:26,149 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:07:26,149 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:07:38,863 DEBUG   SenderThread:24762 [sender.py:send():185] send: stats
+2021-09-21 19:07:41,555 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:07:41,556 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:07:56,985 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:07:56,986 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:08:08,976 DEBUG   SenderThread:24762 [sender.py:send():185] send: stats
+2021-09-21 19:08:12,457 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:08:12,458 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:08:27,854 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:08:27,855 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:08:39,097 DEBUG   SenderThread:24762 [sender.py:send():185] send: stats
+2021-09-21 19:08:43,323 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:08:43,323 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:08:58,841 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:08:58,842 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:09:09,221 DEBUG   SenderThread:24762 [sender.py:send():185] send: stats
+2021-09-21 19:09:14,272 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:09:14,272 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:09:23,741 INFO    Thread-8  :24762 [dir_watcher.py:_on_file_modified():230] file/dir modified: /root/Source/Set-Tree/graphtree/wandb/run-20210921_190703-3ofmraag/files/output.log
+2021-09-21 19:09:29,677 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:09:29,677 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:09:39,350 DEBUG   SenderThread:24762 [sender.py:send():185] send: stats
+2021-09-21 19:09:45,090 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:09:45,091 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:10:00,517 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:10:00,518 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
+2021-09-21 19:10:09,475 DEBUG   SenderThread:24762 [sender.py:send():185] send: stats
+2021-09-21 19:10:16,030 DEBUG   HandlerThread:24762 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-21 19:10:16,030 DEBUG   SenderThread:24762 [sender.py:send_request():199] send_request: stop_status
