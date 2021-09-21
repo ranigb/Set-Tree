@@ -2,6 +2,9 @@
 import graph_data
 import numpy as np
 from graphtree import graphtree
+from starboost import BoostingClassifier, BoostingRegressor
+from starboost.losses import LogLoss
+#%%
 
 np.random.seed(seed=112433)
 def get_random_gnp(n, p, label):
@@ -21,7 +24,7 @@ def get_sample(n1, p1, n0, p0, count):
         sample.append(get_random_gnp(n1, p1, 1))
         target.append(1)
         sample.append(get_random_gnp(n0, p0, 0))
-        target.append(-1)
+        target.append(0)
     return(sample,target)
 
 #%%
@@ -37,10 +40,22 @@ print("tree node created")
 
 
 tree.print()
-preds = np.array([tree.predict(x)[0] for x in train ])
+preds = np.array(gt.predict(train))
 L2 = np.sum((preds - target)**2)
 print(L2, gt.train_L2, gt.train_total_gain)
 
 # %%
+
+gbgta = BoostingRegressor( \
+    init_estimator=graphtree(max_number_of_leafs=5),
+    base_estimator=graphtree(max_number_of_leafs=7), \
+    n_estimators = 30,\
+    learning_rate = 0.1)
+y = np.array(target)
+y = y.flatten()
+gbgta.fit(train, y)
+preds = np.array(gbgta.predict(train))
+gbgtaL2 = np.sum((preds - target)**2)
+print("gbgta L2 = ", gbgtaL2)
 
 # %%

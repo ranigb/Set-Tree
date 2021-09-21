@@ -46,7 +46,7 @@ class tree_node_learner:
         g = X[graph_index]
         p = self
         attentions = []
-        for i in range(0, self.parms.max_attention_depth):
+        for _ in range(0, self.parms.max_attention_depth):
             if (p.parent == None):
                 break
             p = p.parent
@@ -63,7 +63,7 @@ class tree_node_learner:
         if (len(self.active) < self.parms.min_leaf_size):
             self.potential_gain = 0.0
             return(0.0)
-        self.available_attentions =  [[] for i in range(0, len(X))]
+        self.available_attentions =  [[] for _ in range(0, len(X))]
         data = np.array([self.get_feature_vector_for_item(X, i) for i in self.active])
         stump = DecisionTreeRegressor(max_depth=1)
         stump.fit(data, labels)
@@ -108,7 +108,7 @@ class tree_node_learner:
 
 
         ## calculate attention for current node
-        self.attentions = [[] for i in range(0, len(X))]
+        self.attentions = [[] for _ in range(0, len(X))]
         for i in self.active:
             g = X[i]
             _, new_attention, _ = g.get_single_feature(self.feature_index, self.parms.graph_depths, \
@@ -123,7 +123,7 @@ class tree_node_learner:
         leafs = [self]
         total_gain = 0
         potential_gains = [self.find_best_split(X, y)]
-        for i in range(1,self.parms.max_number_of_leafs):
+        for _ in range(1,self.parms.max_number_of_leafs):
             index_max = np.argmax(potential_gains)
             gain = potential_gains[index_max]
             if (gain < min_gain):

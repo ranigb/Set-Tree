@@ -91,24 +91,3 @@ class graph_data:
         return (self.label)
 
         
-
-
-                
-
-
-
-#%%
-
-#graph = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
-#features = np.array([[1, 1], [1, 2], [1, 3]])
-#gd = graph_data(graph, features)
-#fv = gd.get_feature_vector([0,1,2], [[0,1,2], [0]], criteria )
-#print (fv)
-#lst = []
-#for i in range(0, len(fv)):
-#    lst.append(gd.get_single_feature(i, [0,1,2], [[0,1,2], [0]], criteria))
-#print(np.array(lst))
-#gd.get_attentions(0, 4, [0,1,2], [[0,1,2], [0]], criteria)
-
-
-# %%
