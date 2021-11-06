@@ -1,1 +1,0 @@
-{"problem": "Gnp2", "train-size": 100, "attention-depth": 0, "graph-depth": 1, "n_estimators": 30, "learning_rate": 0.1, "L2-train": 0.156, "AUC-train": 0.8440183846618479, "L2-test": 0.186, "AUC_test": 0.8140392561570247, "_runtime": 34, "_timestamp": 1632212076, "_step": 3}
