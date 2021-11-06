@@ -2,7 +2,7 @@
 import numpy as np
 from graphtree import graphtree
 from starboost import BoostingClassifier
-from tests import Gnp, Gnp2, GnpMax, BA_vs_Watts_Strogatz, BAmax, BAone, GnpMaxFeature
+from tests import Gnp, Gnp2, GnpMax, BA_vs_Watts_Strogatz, BAmax, BAone, GnpMaxFeature, Gnp1Q,Gnp2Q
 from sklearn.metrics import roc_auc_score
 import wandb
 wandb.init(project='gta', entity='mlwell-rgb')
@@ -18,8 +18,9 @@ np.random.seed(seed=1133)
 #data_generator = BA_vs_Watts_Strogatz()
 #data_generator = BAmax()
 #data_generator = BAone()
-data_generator = GnpMaxFeature()
-X_train,y_train = data_generator.get_sample(1000)
+#data_generator = GnpMaxFeature()
+data_generator = Gnp2Q()
+X_train,y_train = data_generator.get_sample(10000)
 X_test,y_test = data_generator.get_sample(1000)
 
 
@@ -34,7 +35,7 @@ def test(model, X, y):
 # %%
 
 def run(max_attention_depth, graph_depth, train_size):
-    n_estimators = 30
+    n_estimators = 50
     learning_rate = 0.1
     gbgta = BoostingClassifier( \
         init_estimator=graphtree(max_attention_depth=max_attention_depth, graph_depths=list(range(0, graph_depth + 1))), \
@@ -61,7 +62,7 @@ def run(max_attention_depth, graph_depth, train_size):
 for attention in range(0,3):
     for graph_depth in range(0,3):
         wb = wandb.init(reinit=True)
-        for train_size in [10,20,50,100, 200, 500, 1000]:
+        for train_size in [10,20,50,100, 200, 500, 1000, 2000, 5000, 10000]:
             print("*** Training with attention=%d graph-depth=%d train_size=%d***" % (attention, graph_depth, train_size))
             run(attention, graph_depth, train_size)
         wb.finish()

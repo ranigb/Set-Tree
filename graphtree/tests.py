@@ -1,3 +1,4 @@
+#%%
 from graph_data import graph_data
 import numpy as np
 from scipy.linalg import block_diag
@@ -220,6 +221,71 @@ class GnpMaxFeature:
         y = [g.label for g in X]
         return(X,y)
 
+
+class Gnp1Q:
+    def __init__(self):
+        self.name = self.__class__.__name__
+
     
+    def get_gnp(self,n, p):
+        a = np.random.uniform(size = [n, n])
+        a = (a + a.T)/2
+        adj = (a < p).astype(int)
+        features = np.ones([n,3])
+        features[:,1] = np.random.choice([-1,1], size=(n))
+        features[:,2] = np.random.choice([-1,1], size=(n))
+        n = np.matmul(adj, features[:,0])
+        d1 = np.matmul(adj, features[:,1])
+        same_color = np.multiply(d1, features[:,2])
+        label = np.any(same_color == n).astype(int)
+
+        g = graph_data(adj, features, label)
+        return(g)
+
+    def get_sample(self, count):
+        sizes = np.random.binomial(size=(count), p = 0.5, n = 100)
+        X = [self.get_gnp(sizes[i], 0.3) for i in range(0, count)]
+        y = [g.label for g in X]
+        return(X,y)
 
 
+#%%
+class Gnp2Q:
+    def __init__(self):
+        self.name = self.__class__.__name__
+
+    
+    def get_gnp(self,n, p):
+        a = np.random.uniform(size = [n, n])
+        a = (a + a.T)/2
+        adj = (a < p).astype(int)
+        features = np.ones([n,3])
+        features[:,1] = np.random.choice([-1,1], size=(n))
+        features[:,2] = np.random.choice([-1,1], size=(n))
+        n = np.matmul(adj, features[:,0])
+        d1 = np.matmul(adj, features[:,1])
+        d2 = np.matmul(adj, features[:,1])
+        same_color = np.multiply(d1, d2)
+        n_square = np.multiply(n, n)
+        d1_n = (np.sum(d1 == n) > 3)
+        d2_n = (np.sum(d2 == n) == 0)
+        label = (d1_n | d2_n).astype(int)
+
+        g = graph_data(adj, features, label)
+        return(g)
+
+    def get_sample(self, count):
+        X = [self.get_gnp(50, 0.25) for _ in range(0, count)]
+        y = [g.label for g in X]
+        return(X,y)
+
+
+
+
+#%%
+#g =Gnp2Q()
+#_,Y = g.get_sample(1000)
+#print(np.sum(Y))
+
+
+# %%
