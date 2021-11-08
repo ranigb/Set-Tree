@@ -2,7 +2,7 @@
 import wandb
 api = wandb.Api()
 
-runs = api.runs("mlwell-rgb/Set-Tree-graphtree")
+runs = api.runs("mlwell-rgb/gta")
 summary_list = [] 
 config_list = [] 
 name_list = [] 
@@ -14,4 +14,4 @@ for run in runs:
         history = history.append(run.history())
 
 import pandas as pd 
-history.to_csv("project.csv")
+history.to_csv("projectQ2.csv")
